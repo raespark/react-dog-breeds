@@ -1,0 +1,37 @@
+@import '../../global.scss';
+
+.dog-breed {
+    position: relative;
+
+    .breed-image,
+    .breed-image-placeholder {
+        height: 350px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .breed-image-placeholder {
+        background-color: lightgray;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .breed-name-container {
+        position: absolute;
+        bottom: 15px;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        background-color: rgba(black, 0.5);
+
+        .breed-name {
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            color: white;
+            text-transform: capitalize;
+        }
+    }
+}

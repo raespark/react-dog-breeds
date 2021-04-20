@@ -1,0 +1,59 @@
+@import './global.scss';
+
+.App {
+    display: grid;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 100px;
+
+    .loader-icon {
+        animation: spin 1.5s linear infinite;
+    }
+
+    .app-title {
+        text-align: center;
+    }
+
+    .breed-filter {
+        display: grid;
+        grid-template-columns: 1fr min-content;
+        width: 500px;
+        justify-self: center;
+        margin-bottom: 50px;
+
+        .breed-filter-input {
+            padding: 10px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border: 1px solid black;
+        }
+
+        .breed-filter-button {
+            border: 1px solid black;
+            border-left: none;
+            border-top-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+    }
+
+    .breed-list-container {
+        .breed-list {
+            width: calc(100vw - 50px);
+            display: grid;
+            justify-content: center;
+            grid-template-columns: repeat(auto-fit, 400px);
+            grid-gap: 40px 60px;
+
+            @media (min-width: $lg-screen-min) {
+                width: 80vw;
+            }
+        }
+        .loading-container {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
