@@ -11,20 +11,26 @@ function App() {
     const [breedList, setBreedList] = useState([]);
     const [filteredBreedList, setFilteredBreedList] = useState([]);
 
+    // Fetch all the dog breeds on initial render
     useEffect(() => {
         request.get('https://dog.ceo/api/breeds/list/all').end((err, res) => {
-            const breedArray = Object.keys(res.body.message);
-            setBreedList(breedArray);
-            setFilteredBreedList(breedArray);
-            setBreedsLoaded(true);
+            if (!err) {
+                const breedArray = Object.keys(res.body.message);
+                setBreedList(breedArray);
+                setFilteredBreedList(breedArray);
+                setBreedsLoaded(true);
+            } else {
+                console.error('Error fetching breed list');
+                console.error(err);
+            }
         });
     }, []);
 
+    // filter dog breeds based on input text
     const handleFilter = (e) => {
         const filtered = breedList.filter((breed) =>
             breed.includes(e.target.value)
         );
-        console.log(filtered);
         setFilteredBreedList(filtered);
     };
 
